@@ -15,99 +15,156 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  padding: 20px;
-  padding-block: 5px;
-  margin-block: 0;
-}
+    padding: 20px;
+    padding-block: 5px;
+    margin-block: 0;
+  }
 
-nav ul li {
-  margin-right: 20px;
-  border-radius: 10px;
-  padding-inline: 5px;
-  transition: background-color 0.3s;
-  position: relative;
-}
+  nav ul li {
+    margin-right: 20px;
+    border-radius: 10px;
+    padding-inline: 5px;
+    transition: background-color 0.3s;
+    position: relative;
+  }
 
-nav ul li a {
-  box-sizing: border-box;
-  color: #000;
-  text-decoration: none;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-  position: relative;
-  z-index: 2;
-}
+  nav ul li a {
+    box-sizing: border-box;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    position: relative;
+    z-index: 2;
+  }
 
-nav ul li a::before {
-  box-sizing: border-box;
-  content: '';
-  position: absolute;
+  nav ul li a::before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background-color: #04a2fd;
+    z-index: -1;
+    border-radius: 10px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  nav ul li a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  nav ul li a:hover {
+    color: #ffffff;
+  }
+
+
+
+  form {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+  form label {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+
+  form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  form button {
+    align-self: center;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(247, 75, 89, 0.8);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  form button:hover {
+    background-color: rgba(247, 75, 89, 1);
+  }
+
+  form hr {
+    width: 100%;
+    margin: 0px 0;
+  }
+
+#waves {
+  position: fixed;
   top: 0;
-  left: -10%;
-  width: 120%;
-  height: 100%;
-  background-color: #04a2fd;
-  z-index: -1;
-  border-radius: 10px;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
-
-nav ul li a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-nav ul li a:hover {
-  color: #ffffff;
-}
-
-
-
-form {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: flex-start;
-  margin-top: 10rem;
-  backdrop-filter: blur(10px);
-}
-form label {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-form input {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-form button {
-  align-self: center;
-  margin-top: 20px;
+  left: 0;
   width: 100%;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(247, 75, 89, 0.8);
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  z-index: -1;
 }
 
-form button:hover {
-  background-color: rgba(247, 75, 89, 1);
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  width: 6400px;
+  height: 400px;
+  background: url('./components/wave.svg');
+  background-size: 6400px 400px;
 }
 
-form hr {
+.wave:nth-of-type(2) {
+  bottom: -50px;
+  animation: wave 11s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -25px;
+  animation: wave 15s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.25s infinite;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -3200px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+
+#LogIn {
+  all: unset;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  font-size: x-large;
+  padding-block: 10px;
+}
+
+hr {
   width: 100%;
   margin: 0px 0;
+  border: #000 1px solid;
 }
