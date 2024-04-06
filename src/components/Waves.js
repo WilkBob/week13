@@ -12,9 +12,6 @@ const Waves = () => {
     
         body.addEventListener('mousemove', handleMouseMove);
     
-        return () => {
-          body.removeEventListener('mousemove', handleMouseMove);
-        };
       }, []);
   return (
     <div id='waves'>
